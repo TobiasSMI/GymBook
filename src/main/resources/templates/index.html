@@ -1,0 +1,24 @@
+<meta charset="utf-8"/>
+<div th:switch="${uebungen}">
+    <h2 th:case="null">Bisher sind keine Übungen eingetragen!</h2>
+        <div th:case="*">
+            <h2>Übungen</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Gewicht</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="uebung : ${uebungen}">
+                    <td th:text="${uebung.name}"></td>
+                    <td th:text="${uebung.gewicht}"></td>
+                    <td><a th:href="@{/edit/{id}(id=${uebung.id})}">Edit</a></td>
+                    <td><a th:href="@{/delete/{id}(id=${uebung.id})}">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>      
+    <p><a href="/signup">Füge eine neue Übung hinzu</a></p>
+</div>

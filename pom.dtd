@@ -1,0 +1,6 @@
+<!ELEMENT parent (groupId,artifactId,version)>
+<!ELEMENT groupId (#PCDATA)>
+<!ELEMENT artifactId (#PCDATA)>
+<!ELEMENT version (#PCDATA)>
+<!ELEMENT dependencies (dependency+)>
+<!ELEMENT dependency (groupId,artifactId)>
