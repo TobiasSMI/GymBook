@@ -15,7 +15,7 @@ public class Uebung {
 	
 	    private String name;
 	   
-	    private int gewicht;
+	    private Integer gewicht;
 
 	public long getId() {
 		return id;
@@ -33,11 +33,11 @@ public class Uebung {
 		this.name = name;
 	}
 
-	public int getGewicht() {
+	public Integer getGewicht() {
 		return gewicht;
 	}
 
-	public void setGewicht(int gewicht) {
+	public void setGewicht(Integer gewicht) {
 		this.gewicht = gewicht;
 	}
 	 
