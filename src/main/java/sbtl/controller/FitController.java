@@ -23,7 +23,7 @@ public class FitController {
     public String showSignUpForm(Uebung uebung) {
         return "add-uebung";
     }
-    
+    	
     @PostMapping("/adduebung")
     public String addUebung(@Valid Uebung uebung, BindingResult result, Model model) {
         if (result.hasErrors()) {
