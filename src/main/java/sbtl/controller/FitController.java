@@ -25,7 +25,7 @@ public class FitController {
     }
     
     @PostMapping("/adduebung")
-    public String addUser(@Valid Uebung uebung, BindingResult result, Model model) {
+    public String addUebung(@Valid Uebung uebung, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "add-uebung";
         }
