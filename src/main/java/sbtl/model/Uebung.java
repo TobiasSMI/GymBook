@@ -16,7 +16,7 @@ public class Uebung {
 	    private String name;
 	   
 	    private Integer gewicht;
-
+	    private Integer wiederholung;
 	public long getId() {
 		return id;
 	}
@@ -39,6 +39,14 @@ public class Uebung {
 
 	public void setGewicht(Integer gewicht) {
 		this.gewicht = gewicht;
+	}
+
+	public Integer getWiederholung() {
+		return wiederholung;
+	}
+
+	public void setWiederholung(Integer wiederholung) {
+		this.wiederholung = wiederholung;
 	}
 	 
 	 
