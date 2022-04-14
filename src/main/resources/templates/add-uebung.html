@@ -2,15 +2,28 @@
 <nav th:insert="fragments/components :: navbar"></nav>
 
 <form action="#" th:action="@{/adduebung}" th:object="${uebung}" method="post">
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" list="Uebung">
-    <datalist th:insert="fragments/components :: vorschlag"></datalist>
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-    <label for="gewicht">Gewicht</label>
-    <input type="number" th:field="*{gewicht}" id="gewicht">
-    <span th:if="${#fields.hasErrors('gewicht')}" th:errors="*{gewicht}"></span> 
-    <label for="wiederholung">Wiederholung</label>
-    <input type="number" th:field="*{wiederholung}" id="wiederholung">
-    <span th:if="${#fields.hasErrors('wiederholung')}" th:errors="*{wiederholung}"></span>
-    <button class="btn btn-secondary btn-sm" type="submit" value="Add">Add</button>  
+
+ <div class="form-floating">
+  <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Name">
+  <datalist th:insert="fragments/components :: vorschlag"></datalist>
+  <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+  <label for="name">Name</label>
+</div>
+  
+  
+<div class="form-floating">
+  <input type="number" class="form-control" th:field="*{gewicht}" id="gewicht" placeholder="Gewicht">
+  <span th:if="${#fields.hasErrors('gewicht')}" th:errors="*{gewicht}"></span>
+  <label for="gewicht">Gewicht</label>
+</div>
+
+<div class="form-floating">
+  <input type="number" class="form-control" th:field="*{wiederholung}" id="wiederholung" placeholder="Wiederholungen">
+  <span th:if="${#fields.hasErrors('wiederholung')}" th:errors="*{wiederholung}"></span>
+  <label for="gewicht">Wiederholungen</label>
+</div>
+<br/>
+<div class="d-grid gap-2 col-3 mx-auto">
+  <button style="background-color:#694949;"  class="btn btn-secondary btn-lg" type="submit" value="Add">Add</button>  
+</div>	
 </form>
