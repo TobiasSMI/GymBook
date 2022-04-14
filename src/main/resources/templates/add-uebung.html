@@ -1,9 +1,10 @@
-<head th:insert="fragments/navbar :: header"></head>
-<nav th:insert="fragments/navbar :: navbar"></nav>
+<head th:insert="fragments/components :: header"></head>
+<nav th:insert="fragments/components :: navbar"></nav>
 
 <form action="#" th:action="@{/adduebung}" th:object="${uebung}" method="post">
     <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name">
+    <input type="text" th:field="*{name}" id="name" list="Uebung">
+    <datalist th:insert="fragments/components :: vorschlag"></datalist>
     <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
     <label for="gewicht">Gewicht</label>
     <input type="number" th:field="*{gewicht}" id="gewicht">
