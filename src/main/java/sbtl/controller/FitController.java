@@ -36,7 +36,7 @@ public class FitController {
     //Muss man noch anpassen, bzw. / direkt auf index weiterleiten
 //    @GetMapping("/")
 //    public String showUebungenList1(Model model) {
-//        model.addAttribute("uebungen", fR.findAll());
+//        model.add Attribute("uebungen", fR.findAll());
 //        return "index";
 //    }
     @GetMapping("/index")
