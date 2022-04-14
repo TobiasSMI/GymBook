@@ -33,7 +33,12 @@ public class FitController {
         fR.save(uebung);
         return "redirect:/index";
     }
-    
+    //Muss man noch anpassen, bzw. / direkt auf index weiterleiten
+    @GetMapping("/")
+    public String showUebungenList1(Model model) {
+        model.addAttribute("uebungen", fR.findAll());
+        return "index";
+    }
     @GetMapping("/index")
     public String showUebungenList(Model model) {
         model.addAttribute("uebungen", fR.findAll());
