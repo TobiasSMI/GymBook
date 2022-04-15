@@ -132,6 +132,9 @@ buildNumber.properties
 .history
 .ionide
 
+# ignore gymbook-db
+src/main/resources/data/gymbook-db.mv.db
+
 # Support for Project snippet scope
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
