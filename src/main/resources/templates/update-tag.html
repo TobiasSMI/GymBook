@@ -2,14 +2,14 @@
 <nav th:insert="fragments/components :: navbar"></nav>
 
 <form action="#" 
-	th:action="@{/adduebung}" 
-	th:object="${uebung}" 
-	method="post">
+  th:action="@{/update/{id}(id=${tag.id})}" 
+  th:object="${tag}" 
+  method="post">
+  
  <div class="form-floating">
-  <input type="text" class="form-control" th:field="*{name}" list="Uebung" id="name" placeholder="Name">
-  <datalist th:insert="fragments/components :: vorschlag"></datalist>
-  <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-  <label for="name" class="form-label">Name</label>
+  <input type="text" class="form-control" th:field="*{uebungName}" list="uebungName" id="uebungName" placeholder="Uebung">
+  <span th:if="${#fields.hasErrors('uebungName')}" th:errors="*{uebungName}"></span>
+  <label for="uebungName" class="form-label">Uebung</label>
 </div>
 <div class="form-floating">
   <input type="number" class="form-control" th:field="*{gewicht}" id="gewicht" placeholder="Gewicht">
@@ -23,6 +23,6 @@
 </div>
 <br/>
 <div class="d-grid gap-2 col-3 mx-auto">
-  <button style="background-color:#694949;"  class="btn btn-secondary btn-lg" type="submit" value="Add">Add</button>  
+  <button style="background-color:#694949;"  class="btn btn-secondary btn-lg" type="submit" value="Update">Update</button>  
 </div>	
 </form>

@@ -1,21 +1,26 @@
 package sbtl.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Uebung {
+public class Tag {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	    private String name;
+	    private String tagName;
 	   
+	    private String uebungName;
 	    private Integer gewicht;
 	    private Integer wiederholung;
+	    private LocalDate date = LocalDate.now();
+	    
 	public Long getId() {
 		return id;
 	}
@@ -24,12 +29,12 @@ public class Uebung {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getTagName() {
+		return tagName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTag_Name(String tagName) {
+		this.tagName = tagName;
 	}
 
 	public Integer getGewicht() {
@@ -47,6 +52,27 @@ public class Uebung {
 	public void setWiederholung(Integer wiederholung) {
 		this.wiederholung = wiederholung;
 	}
+
+	public String getUebungName() {
+		return uebungName;
+	}
+
+	public void setUebungName(String uebungName) {
+		this.uebungName = uebungName;
+	}
+
+	public void setTagName(String tagName) {
+		this.tagName = tagName;
+	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+	
 	 
 	 
 }
