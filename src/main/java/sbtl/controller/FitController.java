@@ -9,7 +9,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javassist.tools.framedump;
 import sbtl.model.Tag;
 import sbtl.repository.FitRepository;
 
@@ -18,19 +21,20 @@ public class FitController {
 
 	@Autowired
 	FitRepository fR;
-	
+
     @GetMapping("/signup")
     public String showSignUpForm(Tag tag) {
         return "add-tagName";
     }
     
-    @GetMapping("/showLabel")
+  
+    
+    @PostMapping("/showLabel")
     public String showLabelForm(Tag tag) {
         return "add-tag";
     }
-    	
     @PostMapping("/addtag")
-    public String addUebung(@Valid Tag tag, BindingResult result, Model model) {
+    public String addUebung( @Valid Tag tag, BindingResult result) {
         if (result.hasErrors()) {
             return "add-tag";
         }
@@ -38,7 +42,6 @@ public class FitController {
         fR.save(tag);
         return "redirect:/index";
     }
-   	
    
     //Muss man noch anpassen, bzw. / direkt auf index weiterleiten
     @GetMapping("/")

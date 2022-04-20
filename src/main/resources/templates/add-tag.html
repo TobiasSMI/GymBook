@@ -1,10 +1,11 @@
 <head th:insert="fragments/components :: header"></head>
 <nav th:insert="fragments/components :: navbar"></nav>
 
-<form action="#" 
+<form action="#"  
 	th:action="@{/addtag}" 
 	th:object="${tag}" 
-	method="post">
+	method="POST">
+
 	
  <div class="form-floating">
   <input type="text" class="form-control" th:field="*{uebungName}" list="uebungName" id="uebungName" placeholder="Uebung">

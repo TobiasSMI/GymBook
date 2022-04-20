@@ -33,10 +33,6 @@ public class Tag {
 		return tagName;
 	}
 
-	public void setTag_Name(String tagName) {
-		this.tagName = tagName;
-	}
-
 	public Integer getGewicht() {
 		return gewicht;
 	}
