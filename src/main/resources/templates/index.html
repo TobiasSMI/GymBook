@@ -1,27 +1,25 @@
 <head th:insert="fragments/components :: header"></head>
 <nav th:insert="fragments/components :: navbar"></nav>
-<div th:switch="${uebungen}">
+<div th:switch="${tage}">
         <div th:case="*">
             <table class = "table">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Gewicht</th>
-                        <th scope="col">Wiederholungen</th>
+                        <th scope="col">Datum</th>
                     </tr>
                 </thead>
                 <tbody>
-                <tr th:each="uebung : ${uebungen}">
-                    <td th:text="${uebung.name}"></td>
-                    <td th:text="${uebung.gewicht}"></td>
-                    <td th:text="${uebung.wiederholung}"></td>
-                    <td><a th:href="@{/edit/{id}(id=${uebung.id})}">Edit</a></td>
-                    <td><a th:href="@{/delete/{id}(id=${uebung.id})}">Delete</a></td>
+                <tr th:each="tag : ${tage}">
+                    <td th:text="${tag.tagName}"></td>
+                    <td th:text="${tag.date}"></td>
+                    <td><a th:href="@{/edit/{id}(id=${tag.id})}" class ="btn btn-secondary btn-sm" style ="background-color:#694949;" >Show</a></td>
+                    <td><a th:href="@{/delete/{id}(id=${tag.id})}" class ="btn btn-secondary btn-sm" style ="background-color:#694949;">Delete</a></td>
                 </tr>
             </tbody>
         </table>
     </div>      
     <form action ="/signup">
-   <button class="btn btn-secondary btn-sm" type="submit" value="New Uebung">Neu</button>  
+   <button class="btn btn-secondary btn-sm" style ="background-color:#694949;" type="submit" value="New Uebung">Neu</button>  
     </form>
 </div>

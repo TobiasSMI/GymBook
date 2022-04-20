@@ -9,8 +9,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import sbtl.model.Uebung;
+import javassist.tools.framedump;
+import sbtl.model.Tag;
 import sbtl.repository.FitRepository;
 
 @Controller
@@ -18,57 +21,64 @@ public class FitController {
 
 	@Autowired
 	FitRepository fR;
-	
+
     @GetMapping("/signup")
-    public String showSignUpForm(Uebung uebung) {
-        return "add-uebung";
+    public String showSignUpForm(Tag tag) {
+        return "add-tagName";
     }
-    	
-    @PostMapping("/adduebung")
-    public String addUebung(@Valid Uebung uebung, BindingResult result, Model model) {
+    
+  
+    
+    @PostMapping("/showLabel")
+    public String showLabelForm(Tag tag) {
+        return "add-tag";
+    }
+    @PostMapping("/addtag")
+    public String addUebung( @Valid Tag tag, BindingResult result) {
         if (result.hasErrors()) {
-            return "add-uebung";
+            return "add-tag";
         }
         
-        fR.save(uebung);
+        fR.save(tag);
         return "redirect:/index";
     }
+   
     //Muss man noch anpassen, bzw. / direkt auf index weiterleiten
     @GetMapping("/")
     public String showUebungenList1(Model model) {
-        model.addAttribute("uebungen", fR.findAll());
+        model.addAttribute("tage", fR.findAll());
         return "index";
     }
     @GetMapping("/index")
     public String showUebungenList(Model model) {
-        model.addAttribute("uebungen", fR.findAll());
+        model.addAttribute("tage", fR.findAll());
         return "index";
     }
     @GetMapping("/edit/{id}")
-    public String showUpdateForm(@PathVariable("id") long id, Model model) {
-        Uebung uebung = fR.findById(id)
+    public String showUpdateForm(@PathVariable("id") Long id, Model model) {
+        Tag tag = fR.findById(id)
           .orElseThrow(() -> new IllegalArgumentException("Invalid  Id:" + id));
         
-        model.addAttribute("uebung", uebung);
-        return "update-uebung";
+        model.addAttribute("tag", tag);
+        return "update-tag";
     }
     @PostMapping("/update/{id}")
-    public String updateUebung(@PathVariable("id") long id, @Valid Uebung uebung, 
+    public String updateTag(@PathVariable("id") long id, @Valid Tag tag, 
       BindingResult result, Model model) {
         if (result.hasErrors()) {
-            uebung.setId(id);
-            return "update-uebung";
+            tag.setId(id);
+            return "update-tag";
         }
             
-        fR.save(uebung);
+        fR.save(tag);
         return "redirect:/index";
     }
         
     @GetMapping("/delete/{id}")
     public String deleteUebung(@PathVariable("id") long id, Model model) {
-        Uebung uebung = fR.findById(id)
+        Tag tag = fR.findById(id)
           .orElseThrow(() -> new IllegalArgumentException("Invalid  Id:" + id));
-        fR.delete(uebung);
+        fR.delete(tag);
         return "redirect:/index";
     }
 

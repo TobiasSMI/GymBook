@@ -5,7 +5,7 @@
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark " th:fragment ="navbar" style="background-color:#694949;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">GymBook</a>
+    <a class="navbar-brand" href="/index">GymBook</a>
     <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
@@ -19,5 +19,33 @@
 	    <option value ="Kreuzheben"></option>
    	    <option value ="Kniebeugen"></option>
     </datalist>
-
+    
+    
+<!-- Funktioniert nicht, wenn man es bei add-uebnung einfuegt (Button macht dann nichts) -->
+<form action="#" 
+	th:action="@{/adduebung}" 
+	th:object="${uebung}" 
+	th:fragment="modify"
+	method="post">
+ <div class="form-floating">
+  <input type="text" class="form-control" th:field="*{name}" list="Uebung" id="name" placeholder="Name">
+  <datalist th:insert="fragments/components :: vorschlag"></datalist>
+  <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+  <label for="name" class="form-label">Name</label>
+</div>
+<div class="form-floating">
+  <input type="number" class="form-control" th:field="*{gewicht}" id="gewicht" placeholder="Gewicht">
+  <span th:if="${#fields.hasErrors('gewicht')}" th:errors="*{gewicht}"></span>
+  <label for="gewicht">Gewicht</label>
+</div>
+<div class="form-floating">
+  <input type="number" class="form-control" th:field="*{wiederholung}" id="wiederholung" placeholder="Wiederholungen">
+  <span th:if="${#fields.hasErrors('wiederholung')}" th:errors="*{wiederholung}"></span>
+  <label for="gewicht">Wiederholungen</label>
+</div>
+<br/>
+<div class="d-grid gap-2 col-3 mx-auto">
+  <button style="background-color:#694949;"  class="btn btn-secondary btn-lg" type="submit" value="Add">Add</button>  
+</div>	
+</form>
  
