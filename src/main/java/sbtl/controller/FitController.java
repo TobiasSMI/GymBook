@@ -24,7 +24,7 @@ public class FitController {
 
     @GetMapping("/signup")
     public String showSignUpForm(Tag tag) {
-        return "add-tagName";
+        return "add-tag";
     }
     
   

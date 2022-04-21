@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head th:insert="fragments/components :: header"></head>
 <nav th:insert="fragments/components :: navbar"></nav>
 <div th:switch="${tage}">
@@ -19,7 +21,8 @@
             </tbody>
         </table>
     </div>      
-    <form action ="/signup">
-   <button class="btn btn-secondary btn-sm" style ="background-color:#694949;" type="submit" value="New Uebung">Neu</button>  
+   <form action ="/signup">
+   		<button class="btn btn-secondary btn-sm" style ="background-color:#694949;" type="submit" value="New Uebung">Neu</button>  
     </form>
 </div>
+</html>
