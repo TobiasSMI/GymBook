@@ -28,7 +28,6 @@
     </datalist>
     
     
-<!-- Funktioniert nicht, wenn man es bei add-uebnung einfuegt (Button macht dann nichts)  -->
 <div th:fragment = "add">
 <div class="form-floating">
   <input type="text" class="form-control" th:field="*{tagName}" id="tagName" placeholder="Name">
@@ -43,7 +42,7 @@
   <label for="uebungName" class="form-label">Übung</label>
 </div>
 <div class="form-floating">
-  <input type="number" class="form-control" th:field="*{gewicht}" id="gewicht" placeholder="Gewicht">
+  <input type="number" step ="0.01" class="form-control" th:field="*{gewicht}"  id="gewicht" placeholder="Gewicht">
   <span th:if="${#fields.hasErrors('gewicht')}" th:errors="*{gewicht}"></span>
   <label for="gewicht">Gewicht</label>
 </div>

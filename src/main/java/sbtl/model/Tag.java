@@ -16,7 +16,7 @@ public class Tag {
 	
 	    private String tagName;
 	    private String uebungName;
-	    private Integer gewicht;
+	    private Double gewicht;
 	    private Integer wiederholung;
 	    private LocalDate date = LocalDate.now();
 	    
@@ -32,11 +32,11 @@ public class Tag {
 		return tagName;
 	}
 
-	public Integer getGewicht() {
+	public Double getGewicht() {
 		return gewicht;
 	}
 
-	public void setGewicht(Integer gewicht) {
+	public void setGewicht(Double gewicht) {
 		this.gewicht = gewicht;
 	}
 
