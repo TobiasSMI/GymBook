@@ -15,7 +15,6 @@ public class Tag {
 	private Long id;
 	
 	    private String tagName;
-	   
 	    private String uebungName;
 	    private Integer gewicht;
 	    private Integer wiederholung;
