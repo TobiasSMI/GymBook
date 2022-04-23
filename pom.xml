@@ -7,8 +7,8 @@
     <version>2.4.0</version>
 </parent>
   <groupId>marcel</groupId>
-  <artifactId>sbtl</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <artifactId>gymbook</artifactId>
+  <version>0.0.1</version>
   
       <properties>
         <bootstrap.version>4.0.0-2</bootstrap.version>
